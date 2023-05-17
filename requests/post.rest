@@ -2,8 +2,8 @@ POST http://localhost:3003/api/blogs
 Content-Type: application/json
 
 {
-  "title": "Why Facts Don’t Change Our Minds",
-  "author": "James Clear",
-  "url": "https://jamesclear.com/why-facts-dont-change-minds",
-  "likes": 35536
+  "title": "How to Fall Asleep Fast",
+  "author": "Austin Meadows",
+  "url": "https://www.sleepfoundation.org/sleep-hygiene/how-to-fall-asleep-fast",
+  "likes": 2777
 }
