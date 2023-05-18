@@ -5,5 +5,5 @@ Content-Type: application/json
   "title": "How to Fall Asleep Fast",
   "author": "Austin Meadows",
   "url": "https://www.sleepfoundation.org/sleep-hygiene/how-to-fall-asleep-fast",
-  "likes": 2777
+  "likes": 1
 }
