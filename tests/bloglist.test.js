@@ -86,6 +86,23 @@ test('deleting a blog post returns 204 status code', async () => {
   expect(titles).not.toContain(blogToDelete.title)
 })
 
+test('updating a blog post increases the number of likes', async () => {
+  const blogs = await listHelper.blogsInDb()
+  const blogToUpdate = blogs[0]
+
+  const updatedBlog = { ...blogToUpdate, likes: blogToUpdate.likes + 1 }
+
+  await api
+    .put(`/api/blogs/${blogToUpdate.id}`)
+    .send(updatedBlog)
+    .expect(200)
+
+  const blogsAfterUpdate = await listHelper.blogsInDb()
+  const updatedBlogAfterUpdate = blogsAfterUpdate.find(b => b.id === blogToUpdate.id)
+
+  expect(updatedBlogAfterUpdate.likes).toBe(blogToUpdate.likes + 1)
+})
+
 // test('dummy returns one', () => {
 //   const blogs = []
 
