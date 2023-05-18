@@ -47,6 +47,26 @@ test('the unique identifier property of the blog posts is named id', async () =>
   })
 })
 
+test('creating a new blog post', async () => {
+  const newBlog = {
+    title: 'The Book',
+    author: 'Patrick Symmes',
+    url: 'https://www.outsideonline.com/adventure-travel/destinations/south-america/book/',
+    likes: 100,
+  }
+
+  await api
+    .post('/api/blogs')
+    .send(newBlog)
+    .expect(201)
+    .expect('Content-Type', /application\/json/)
+
+  const response = await api.get('/api/blogs')
+  const blogs = response.body
+
+  expect(blogs.length).toBe(initialBlogs.length + 1)
+})
+
 // test('dummy returns one', () => {
 //   const blogs = []
 
