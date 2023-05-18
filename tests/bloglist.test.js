@@ -1,4 +1,4 @@
-// const listHelper = require('../utils/list_helper')
+const listHelper = require('../utils/list_helper')
 const mongoose = require('mongoose')
 const supertest = require('supertest')
 const app = require('../app')
@@ -65,6 +65,25 @@ test('creating a new blog post', async () => {
   const blogs = response.body
 
   expect(blogs.length).toBe(initialBlogs.length + 1)
+})
+
+test('deleting a blog post returns 204 status code', async () => {
+  const blogsAtStart = await listHelper.blogsInDb()
+  const blogToDelete = blogsAtStart[0]
+
+  await api
+    .delete(`/api/blogs/${blogToDelete.id}`)
+    .expect(204)
+
+  const blogsAtEnd = await listHelper.blogsInDb()
+
+  expect(blogsAtEnd).toHaveLength(
+    initialBlogs.length - 1
+  )
+
+  const titles = blogsAtEnd.map(blog => blog.title)
+
+  expect(titles).not.toContain(blogToDelete.title)
 })
 
 // test('dummy returns one', () => {
