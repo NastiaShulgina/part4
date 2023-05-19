@@ -17,3 +17,12 @@ Content-Type: application/json
     "name": "Petroa",
     "password": "helloa"
 }
+
+###
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+    "username": "qwertya",
+    "password": "helloa"
+}
