@@ -7,3 +7,13 @@ Content-Type: application/json
   "url": "https://www.sleepfoundation.org/sleep-hygiene/how-to-fall-asleep-fast",
   "likes": 1
 }
+
+###
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+    "username": "programmer007",
+    "name": "Artur",
+    "password": "greenforest"
+}
