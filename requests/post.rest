@@ -26,3 +26,15 @@ Content-Type: application/json
     "username": "qwertya",
     "password": "helloa"
 }
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InF3ZXJ0eWEiLCJpZCI6IjY0Njc2ZDcxZDM0YmRjMzhiMThkYTUwNyIsImlhdCI6MTY4NDUxMTM5NiwiZXhwIjoxNjg0NTE0OTk2fQ.7H0Ey65f6pQotx81b5CAhZY1tM3enWfILlD5EhrJ0TQ
+
+{
+  "title": "Test tocken 100",
+  "author": "me 4",
+  "url": "https://www.example4.com",
+  "likes": 44
+}
