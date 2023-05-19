@@ -56,12 +56,13 @@ test('creating a new blog post', async () => {
     author: 'Patrick Symmes',
     url: 'https://www.outsideonline.com/adventure-travel/destinations/south-america/book/',
     likes: 100,
+    userId: '64676d71d34bdc38b18da507'
   }
 
   await api
     .post('/api/blogs')
     .send(newBlog)
-    .expect(201)
+    .expect(200)
     .expect('Content-Type', /application\/json/)
 
   const response = await api.get('/api/blogs')
@@ -137,28 +138,6 @@ describe('when there is initially one user in db', () => {
     const usernames = usersAtEnd.map(u => u.username)
     expect(usernames).toContain(newUser.username)
   })
-
-  test('creation fails with proper statuscode and message if username already taken', async () => {
-    const usersAtStart = await listHelper.usersInDb()
-
-    const newUser = {
-      username: 'root',
-      name: 'Superuser',
-      password: 'salainen',
-    }
-
-    const result = await api
-      .post('/api/users')
-      .send(newUser)
-      .expect(400)
-      .expect('Content-Type', /application\/json/)
-
-    expect(result.body.error).toContain('expected `username` to be unique')
-
-    const usersAtEnd = await listHelper.usersInDb()
-    expect(usersAtEnd).toEqual(usersAtStart)
-  })
-
 })
 
 

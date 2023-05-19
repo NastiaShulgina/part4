@@ -2,10 +2,10 @@ POST http://localhost:3003/api/blogs
 Content-Type: application/json
 
 {
-  "title": "How to Fall Asleep Fast",
-  "author": "Austin Meadows",
-  "url": "https://www.sleepfoundation.org/sleep-hygiene/how-to-fall-asleep-fast",
-  "likes": 1
+  "title": "Test 2",
+  "author": "me 2",
+  "url": "https://www.example2.com",
+  "likes": 82
 }
 
 ###
@@ -13,7 +13,7 @@ POST http://localhost:3003/api/users
 Content-Type: application/json
 
 {
-    "username": "programmer007",
-    "name": "Artur",
-    "password": "greenforest"
+    "username": "qwertya",
+    "name": "Petroa",
+    "password": "helloa"
 }
